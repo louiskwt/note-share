@@ -16,6 +16,9 @@ const files = fs.readdirSync(dirPath).map(name => {
     };
 });
 
+// // Test code
+// console.log(files);
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
