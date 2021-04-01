@@ -3,36 +3,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/style.css">
-        <title>Note Share</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+        <title>NoteShelf</title>
     </head>
     <body>
         <!-- Navbar -->
         <div class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-              <a href="../" class="navbar-brand">Note Share</a>
+              <a href="../" class="navbar-brand">Note Shelf</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="../help/">Help</a>
+                    <a class="nav-link" href="#notes">筆記</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="https://blog.bootswatch.com/">Blog</a>
-                  </li> -->
-                  <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Flatly <span class="caret"></span></a>
-                    <div class="dropdown-menu" aria-labelledby="download">
-                      <a class="dropdown-item" rel="noopener" target="_blank" href="https://jsfiddle.net/bootswatch/jmg3gykg/">Open in JSFiddle</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="../4/flatly/bootstrap.min.css" download>bootstrap.min.css</a>
-                      <a class="dropdown-item" href="../4/flatly/bootstrap.css" download>bootstrap.css</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="../4/flatly/_variables.scss" download>_variables.scss</a>
-                      <a class="dropdown-item" href="../4/flatly/_bootswatch.scss" download>_bootswatch.scss</a>
-                    </div>
-                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="#video">影片分享</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -40,20 +29,113 @@
 
         <div class="container my-3">
             <div class="jumbotron">
-                <h1 class="display-4">Note Share</h1>
-                <h2 class="display-4">Sharing is Caring~</h2>
-                <p class="lead">這是一個我同學生分享筆記的網站</p>
+                <h1 class="display-4">Note Shelf</h1>
+                <h2 class="display-5">Sharing is Caring</h2>
+                <p class="lead">Hi, 這是一個我跟學生分享筆記的網站</p>
                 <hr class="my-4">
                 <p>在下面可以搵到DSE English Paper 2 嘅筆記。之段應該會加入多notes同內容</p>
                 <p class="lead">
-                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                  <h5>有任何問題歡迎聯絡我:</h5>
+                  <br>
+                  <h4><i class="fab fa-whatsapp"></i> 6352 0220</h4>
+                  <h4><i class="fab fa-instagram"></i> louis_tkw</h4>
                 </p>
-              </div>
-              <div class="list-group">
-                <% files.map(file => { %>
-                    <a href="<%= file.url %>" class="list-group-item list-group-item-action"><%= file.name %></a>
+            </div>
+            <br><br>
+              <!-- Notes Section -->
+              <div id="notes" class="list-group">
+                <li class="list-group-item list-group-item-action active" style="font-size: 20px">Paper 2 Notes 寫作筆記</li>
+                <% filteredFiles.map(file => { %>
+                    <a href="<%= file.url %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="font-size: 20px"><%= file.name %> <i class="fas fa-file-download fa-2x"></i></a>
                 <% }) %>
               </div>
-        </div>
+              <br><br>
+              <!-- Video Section -->
+              <h3>DSE影片分享</h3>
+
+              <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> 注意!</strong>
+                <p>以下影片含有課程或產品推擴訊息，而我絕對唔係想大家去畀更多嘅錢去補英文或買課程，同時我亦唔建議你哋咁做。以下嘅影片只係等大家可以學多少少唔同卷嘅技巧同策略</p> 
+                <strong> 聲明!</strong>
+                <p>Louis本人同下面的YouTube Channles 或 YouTubers 並冇合作亦冇關聯</p>
+              </div>
+              
+              <ul class="nav nav-tabs" id="video">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#paper1">Paper 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#paper2">Paper2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#paper3">Paper3</a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="paper1">
+                  <div class="container mt-3">
+                    <div class="card border-primary mb-3" style="max-width: 20rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">DSE 英文 Paper 1 Reading 題型詳解、找尋核心及隱藏答案</h4>
+                        <p class="card-text">在DSE Paper 1 Reading，平均一分鐘需要拿取一分，如果答題時沒有方向、沒有策略，沒有具體目標，答題次序錯誤，極有可能答為了拿取一分而浪費了數分鐘。
+                        </p>
+                        <br>
+                        <a type="button" href="https://www.youtube.com/watch?v=0kOe0IaxhNM" target="_blank" class="btn btn-success btn-lg btn-block"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="paper2">
+                  <div class="container mt-3 d-flex justify-center">
+                    <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">DSE 英文 Paper 2 寫作: 必讀5**滿分內容 CAR 口訣框架 (輕易拎7/7分內容!)</h4>
+                        <p class="card-text">今次同大家分享左 Paper 2 寫作 CAR 既內容口訣，幫大家 KO 青少年、上癮既題目，攞滿分內容。
+                        </p>
+                        <br>
+                        <a type="button" href="https://www.youtube.com/watch?v=j9v-daDI3M4" target="_blank" class="btn btn-success btn-lg btn-block"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+                      </div>
+                    </div>
+                    <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">DSE 英文寫作 Paper 2 五大致命傷！ (2021 DSE 必看 Mini Course 課程🔥)</h4>
+                        <p class="card-text">今今次同大家分享左英文 Paper 2 五大致命傷亦都做左個 mini course 去幫大家，希望幫到你地啦！
+                        </p>
+                        <br>
+                        <a type="button" href="https://www.youtube.com/watch?v=PcawIctezy8" target='_blank' class="btn btn-success btn-lg btn-block"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="paper3">
+                  <div class="container mt-3 d-flex justify-center">
+                    <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">DSE倒數 🔥 Paper 3 聆聽 Part A 5** 滿分技巧 ! 五招救你一個Grade 🤯</h4>
+                        <p class="card-text">之前都講咗好多關於P1 P2嘅技巧，好似比較少講P3 🎧，唔通Listening真係只可以撓埋雙手聽天由命？ 🥺 唔係！今次就分享考聆聽前應該準備嘅 5️⃣件事。聽完明啲唔明啲？錄音太快聽唔切？有咩考生常犯嘅低級錯誤要注意？有咩方法可以臨急抱吓佛腳？臨場表現點改善？一條片講哂俾你知 ♥️
+                        </p>
+                        <br>
+                        <a type="button" href="https://www.youtube.com/watch?v=e0QPzgDhztg" target="_blank" class="btn btn-success btn-lg btn-block"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+                      </div>
+                    </div>
+                    <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">DSE 英文Integrated Skills不能不知宏觀策略</h4>
+                        <p class="card-text">A Great Video about Paper 3 Integrated Skills by Melody Tam 🔥
+                        </p>
+                        <br>
+                        <a type="button" href="https://www.youtube.com/watch?v=nq5FLBlVNGw&t=62s" target='_blank' class="btn btn-success btn-lg btn-block"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <br><br>
+        </div> 
+        <!-- class="list-group-item list-group-item-action" -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     </body>
 </html>
