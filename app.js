@@ -6,7 +6,7 @@ const fs = require('fs');
 
 const app = express();
 const dirPath = path.join(__dirname, 'public/notes');
-const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Getting all the files and their urls
 const files = fs.readdirSync(dirPath).map(name => {
@@ -48,4 +48,4 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(port, () => console.log(`app listening on port ${port}`));
+app.listen(PORT, () => console.log(`app listening on port ${PORT}`));
