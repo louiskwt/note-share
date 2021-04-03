@@ -2,7 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const path = require('path');
 const fs = require('fs');
-
+const moment = require('moment');
 
 const app = express();
 const dirPath = path.join(__dirname, 'public/notes');
@@ -36,15 +36,18 @@ files.sort(compareID);
 // Filtering out DS_store file
 const filteredFiles = files.filter(file => file.id !== '.D');
 
-console.log(filteredFiles);
 
+// Implement countdown to DSE
+moment.locale('zh-hk');
+const countdown = moment("20210427", "YYYYMMDD").fromNow();
+const countdownDay = countdown.slice(0, countdown.length - 1)
 
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render("index", {filteredFiles})
+    res.render("index", {filteredFiles, countdownDay});
 });
 
 
