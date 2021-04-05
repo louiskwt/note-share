@@ -43,10 +43,32 @@
             </div>
             <br><br>
               <!-- Notes Section -->
+              <div id="paper-1" class="list-group">
+                <li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center" style="font-size: 20px">Paper 1 Notes 閱讀筆記 <i class="fas fa-plus expand-btn" style="cursor: pointer;"></i></li>
+                <div class="expand-list d-none" id="paper-1-list">
+                  <% filteredP1_Files.map(file => { %>
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="font-size: 20px">
+                      <a href="<%= file.url %>" class="text-dark" style="font-size: 20px"><%= file.name %> </a> <a href="<%= file.url %>" download class="fas fa-file-download fa-2x text-dark"></a>
+                    </li>
+                  <% }) %>
+                </div>
+              </div>
+              <br>
               <div id="paper-2" class="list-group">
                 <li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center" style="font-size: 20px">Paper 2 Notes 寫作筆記 <i class="fas fa-plus expand-btn" style="cursor: pointer;"></i></li>
                 <div class="expand-list d-none" id="paper-2-list">
-                  <% filteredFiles.map(file => { %>
+                  <% filteredP2_Files.map(file => { %>
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="font-size: 20px">
+                      <a href="<%= file.url %>" class="text-dark" style="font-size: 20px"><%= file.name %> </a> <a href="<%= file.url %>" download class="fas fa-file-download fa-2x text-dark"></a>
+                    </li>
+                  <% }) %>
+                </div>
+              </div>
+              <br>
+              <div id="paper-3" class="list-group">
+                <li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center" style="font-size: 20px">Paper 3 Notes 聆聽筆記 <i class="fas fa-plus expand-btn" style="cursor: pointer;"></i></li>
+                <div class="expand-list d-none" id="paper-3-list">
+                  <% filteredP3_Files.map(file => { %>
                     <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="font-size: 20px">
                       <a href="<%= file.url %>" class="text-dark" style="font-size: 20px"><%= file.name %> </a> <a href="<%= file.url %>" download class="fas fa-file-download fa-2x text-dark"></a>
                     </li>
