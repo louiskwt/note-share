@@ -11,7 +11,7 @@ expandBtnArr.forEach((expandBtn) => {
 // function for expanding note section
 function expand(e) {
 	// find tha parent to get the id name
-	const paperType = target.parentNode.parentNode.id;
+	const paperType = e.target.parentNode.parentNode.id;
 
 	// use the id name to target the corresponding list
 	if (
